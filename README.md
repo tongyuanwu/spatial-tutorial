@@ -1,8 +1,7 @@
 # Geospatial Data Analysis & Mapping in Python
 
 An online, English-language **Jupyter Book** teaching geospatial data analysis and
-publication-quality mapping in Python — adapted from a three-day GIS workshop by
-Wu Tongyuan (吴统元).
+publication-quality mapping in Python — adapted from a three-day GIS workshop.
 
 📖 **Read it online:** https://tongyuanwu.github.io/spatial-tutorial
 
@@ -40,5 +39,5 @@ The rendered site lands in `book/_build/html`.
 
 ## License & attribution
 
-Tutorial content © 2025 Wu Tongyuan. Individual data layers retain their original
+Tutorial content © 2025. Individual data layers retain their original
 licenses — see the [data appendix](book/appendix/data.md).

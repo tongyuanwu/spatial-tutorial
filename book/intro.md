@@ -1,5 +1,11 @@
 # Geospatial Data Analysis & Mapping in Python
 
+```{image} images/cover.svg
+:alt: Geospatial Data Analysis & Mapping in Python — raster, vector, remote sensing, cartography
+:width: 100%
+:align: center
+```
+
 A hands-on guide to working with raster and vector geospatial data in Python — from
 reading a GeoTIFF and choosing a map projection, through pulling satellite imagery and
 classifying land cover, to producing publication-quality figures.

@@ -3,7 +3,8 @@
 #  Jupyter Book 2 / MyST later by swapping this file + _toc.yml for a single myst.yml.)
 
 title: Geospatial Data Analysis & Mapping in Python
-author: Wu Tongyuan (吴统元)
+# Author byline hidden for now — attribution to be decided later.
+author: ""
 copyright: "2025"
 logo: ""
 

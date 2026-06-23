@@ -1,0 +1,58 @@
+<svg width="100%" viewBox="0 0 680 240" xmlns="http://www.w3.org/2000/svg" role="img" font-family="Segoe UI, system-ui, -apple-system, Helvetica, Arial, sans-serif">
+  <title>Geospatial Data Analysis &amp; Mapping in Python</title>
+  <desc>A wireframe globe with a latitude-coloured temperature scatter beside the book title.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0a2940"/>
+      <stop offset="0.55" stop-color="#0e4a5b"/>
+      <stop offset="1" stop-color="#11636e"/>
+    </linearGradient>
+    <clipPath id="panel"><rect x="0" y="0" width="680" height="240" rx="14"/></clipPath>
+    <clipPath id="globe"><circle cx="548" cy="120" r="88"/></clipPath>
+  </defs>
+
+  <g clip-path="url(#panel)">
+    <rect x="0" y="0" width="680" height="240" fill="url(#bg)"/>
+
+    <g stroke="#ffffff" stroke-width="0.8" opacity="0.06">
+      <line x1="60" y1="0" x2="60" y2="240"/><line x1="120" y1="0" x2="120" y2="240"/>
+      <line x1="180" y1="0" x2="180" y2="240"/><line x1="240" y1="0" x2="240" y2="240"/>
+      <line x1="300" y1="0" x2="300" y2="240"/><line x1="360" y1="0" x2="360" y2="240"/>
+      <line x1="420" y1="0" x2="420" y2="240"/><line x1="480" y1="0" x2="480" y2="240"/>
+      <line x1="540" y1="0" x2="540" y2="240"/><line x1="600" y1="0" x2="600" y2="240"/>
+      <line x1="0" y1="40" x2="680" y2="40"/><line x1="0" y1="80" x2="680" y2="80"/>
+      <line x1="0" y1="120" x2="680" y2="120"/><line x1="0" y1="160" x2="680" y2="160"/>
+      <line x1="0" y1="200" x2="680" y2="200"/>
+    </g>
+
+    <circle cx="548" cy="120" r="88" fill="#072234" opacity="0.55"/>
+
+    <g clip-path="url(#globe)" fill="none" stroke="#9fd4e3" stroke-width="0.8" opacity="0.3">
+      <ellipse cx="548" cy="120" rx="88" ry="14"/>
+      <ellipse cx="548" cy="90"  rx="83" ry="13"/>
+      <ellipse cx="548" cy="150" rx="83" ry="13"/>
+      <ellipse cx="548" cy="60"  rx="64" ry="10"/>
+      <ellipse cx="548" cy="180" rx="64" ry="10"/>
+      <ellipse cx="548" cy="120" rx="29" ry="88"/>
+      <ellipse cx="548" cy="120" rx="58" ry="88"/>
+      <line x1="548" y1="32" x2="548" y2="208"/>
+    </g>
+
+    <g clip-path="url(#globe)">
+      <circle cx="473" cy="95"  r="6" fill="#fdae61"/><circle cx="473" cy="120" r="6" fill="#e34a33"/><circle cx="473" cy="145" r="6" fill="#fdae61"/>
+      <circle cx="498" cy="70"  r="6" fill="#74add1"/><circle cx="498" cy="95"  r="6" fill="#fdae61"/><circle cx="498" cy="120" r="6" fill="#e34a33"/><circle cx="498" cy="145" r="6" fill="#fdae61"/><circle cx="498" cy="170" r="6" fill="#74add1"/>
+      <circle cx="523" cy="70"  r="6" fill="#74add1"/><circle cx="523" cy="95"  r="6" fill="#fdae61"/><circle cx="523" cy="120" r="6" fill="#e34a33"/><circle cx="523" cy="145" r="6" fill="#fdae61"/><circle cx="523" cy="170" r="6" fill="#74add1"/>
+      <circle cx="548" cy="70"  r="6" fill="#74add1"/><circle cx="548" cy="95"  r="6" fill="#fdae61"/><circle cx="548" cy="120" r="6" fill="#e34a33"/><circle cx="548" cy="145" r="6" fill="#fdae61"/><circle cx="548" cy="170" r="6" fill="#74add1"/>
+      <circle cx="573" cy="70"  r="6" fill="#74add1"/><circle cx="573" cy="95"  r="6" fill="#fdae61"/><circle cx="573" cy="120" r="6" fill="#e34a33"/><circle cx="573" cy="145" r="6" fill="#fdae61"/><circle cx="573" cy="170" r="6" fill="#74add1"/>
+      <circle cx="598" cy="70"  r="6" fill="#74add1"/><circle cx="598" cy="95"  r="6" fill="#fdae61"/><circle cx="598" cy="120" r="6" fill="#e34a33"/><circle cx="598" cy="145" r="6" fill="#fdae61"/><circle cx="598" cy="170" r="6" fill="#74add1"/>
+      <circle cx="623" cy="95"  r="6" fill="#fdae61"/><circle cx="623" cy="120" r="6" fill="#e34a33"/><circle cx="623" cy="145" r="6" fill="#fdae61"/>
+    </g>
+
+    <circle cx="548" cy="120" r="88" fill="none" stroke="#bfe6f0" stroke-width="1.2" opacity="0.65"/>
+
+    <text x="40" y="104" font-size="29" font-weight="700" fill="#ffffff">Geospatial Data Analysis</text>
+    <text x="40" y="140" font-size="29" font-weight="700" fill="#ffffff">&amp; Mapping in Python</text>
+    <line x1="42" y1="159" x2="250" y2="159" stroke="#fdae61" stroke-width="3" stroke-linecap="round"/>
+    <text x="42" y="184" font-size="13.5" font-weight="400" fill="#bcdcec" letter-spacing="0.3">Raster · Vector · Remote sensing · Cartography</text>
+  </g>
+</svg>
