@@ -1,0 +1,40 @@
+format: jb-book
+root: intro
+parts:
+  - caption: "I · Foundations"
+    chapters:
+      - file: foundations/01-spatial-data-models
+  - caption: "II · Projections & Coordinate Systems"
+    chapters:
+      - file: projections/02-projections-crs
+  - caption: "III · The rasterio Raster Workflow"
+    chapters:
+      - file: rasterio/03-rasterio-pipeline
+  - caption: "IV · Vector Data & World Boundaries"
+    chapters:
+      - file: vector/04-vector-boundaries
+  - caption: "V · Remote Sensing with Google Earth Engine"
+    chapters:
+      - file: gee/05-gee-platform
+        sections:
+          - file: gee/05b-landsat-colab
+          - file: gee/05c-sentinel-colab
+      - file: gee/06-gee-classification
+        sections:
+          - file: gee/06b-classifier-colab
+  - caption: "VI · Publication-Quality Maps"
+    chapters:
+      - file: viz/07-imshow-essentials
+      - file: viz/08-species-richness
+  - caption: "VII · Capstone — Global Road-Surface Temperature"
+    chapters:
+      - file: capstone/09-ridgeline
+        sections:
+          - file: capstone/09b-weighted-ridgeline
+      - file: capstone/10-road-temp-map
+      # - file: capstone/11-composite   # add after the broken notebook is reconstructed
+  - caption: "Appendices"
+    chapters:
+      - file: appendix/data
+      - file: appendix/environment
+      - file: appendix/provenance

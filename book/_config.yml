@@ -1,0 +1,39 @@
+# Jupyter Book configuration
+# (Skeleton build — Jupyter Book 1 / Sphinx. Pages are MyST-markdown and port to
+#  Jupyter Book 2 / MyST later by swapping this file + _toc.yml for a single myst.yml.)
+
+title: Geospatial Data Analysis & Mapping in Python
+author: Wu Tongyuan (吴统元)
+copyright: "2025"
+logo: ""
+
+# Only build files that are listed in _toc.yml (keeps stray files out of the build)
+only_build_toc_files: true
+
+# Do NOT execute notebooks on build — we ship cached outputs (see appendix/environment).
+# Switch to 'cache' or 'force' only in the manual regeneration job that has the data + env.
+execute:
+  execute_notebooks: "off"
+  timeout: 180
+
+# English book
+sphinx:
+  config:
+    language: en
+    html_last_updated_fmt: "%Y-%m-%d"
+
+html:
+  use_issues_button: false
+  use_repository_button: true
+  use_edit_page_button: false
+
+# Repository the notebooks live in — drives the launch buttons below.
+repository:
+  url: https://github.com/tongyuanwu/spatial-tutorial
+  path_to_book: book
+  branch: main
+
+# Adds a 🚀 launch menu on every notebook page with an "Open in Colab" link.
+launch_buttons:
+  colab_url: "https://colab.research.google.com"
+  notebook_interface: "jupyterlab"
