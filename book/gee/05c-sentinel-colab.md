@@ -1,4 +1,4 @@
-# Sentinel-2 in GEE (Colab)
+# Sentinel-2
 
 Working with **Sentinel-2** surface-reflectance imagery in Google Earth Engine: filter an
 `ImageCollection` by date, area, and cloud cover, optionally mask out clouds, compute band
@@ -126,10 +126,15 @@ m
   correct. (NDVI itself is a ratio and is scale-invariant, but **masking clouds** still
   matters — unmasked cloud pixels bias the composite.)
 
+## References
+
+- Google Earth Engine Data Catalog. (n.d.). [Harmonized Sentinel-2 MSI: MultiSpectral Instrument, Level-2A (SR)](https://developers.google.com/earth-engine/datasets/catalog/COPERNICUS_S2_SR_HARMONIZED).
+- European Space Agency. (n.d.). [Sentinel-2 mission](https://www.esa.int/Applications/Observing_the_Earth/Copernicus/Sentinel-2).
+
 ```{seealso}
 For the conceptual background — what an `ImageCollection` is, server-side compute, and the
-Landsat missions — see [](05-gee-platform.md). For the parallel Landsat walk-through, see
-[](05b-landsat-colab.md).
+Earth Engine object model — see [](05-gee-platform.md). For the parallel Landsat walk-through,
+see [](05b-landsat-colab.md).
 ```
 
 🚧 *Draft skeleton — annotated code blocks + saved output screenshots to be added.*

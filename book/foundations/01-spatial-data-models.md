@@ -131,7 +131,14 @@ common one for imagery is `uint8` (unsigned 8-bit integer), which stores whole n
 temperature rasters often use `float32` instead, to hold fractional values. You can check
 this with `src.dtypes`.
 
+## References
+
+- Longley, P. A., Goodchild, M. F., Maguire, D. J., & Rhind, D. W. (2015).
+  *Geographic Information Science and Systems* (4th ed.). Wiley.
+- Burrough, P. A., McDonnell, R. A., & Lloyd, C. D. (2015).
+  *Principles of Geographical Information Systems* (3rd ed.). Oxford University Press.
+
 ---
 
-**Next:** every raster and vector layer carries a coordinate system. The next chapter,
+**Next:** every raster and vector layer carries a coordinate system. The next part,
 [](../projections/02-projections-crs.md), explains what that means and how to choose one.

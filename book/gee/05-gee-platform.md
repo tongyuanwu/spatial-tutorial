@@ -12,7 +12,6 @@ of object types you will use to describe an analysis.
 - Explain what Earth Engine is and why it suits remote-sensing **big data**
 - Recognise the three operations that actually **trigger** cloud computation
 - Read and build the core GEE objects: `ee.Image`, `ee.ImageCollection`, `ee.Feature`, `ee.FeatureCollection`
-- Decode a Landsat product id like `LC08_C02_T1_L2` and know what its bands and quality masks contain
 ```
 
 ## What GEE is, and why it exists
@@ -80,7 +79,7 @@ narrow it down — typically by **location** with `.filterBounds()` and by **tim
 import ee
 
 # A collection is a set of remote-sensing images
-a_collection = ee.ImageCollection('LANDSAT/LC08/C02/T1_L2')
+a_collection = ee.ImageCollection('DATASET_ID')
 
 # Filter by place and date to keep only the images you need
 filtered = (a_collection
@@ -93,8 +92,8 @@ filtered = (a_collection
 There are several ways to end up with a single `ee.Image`. You can name one directly by its id:
 
 ```python
-# Define one image directly by its product id
-image = ee.Image('COPERNICUS/S2/20210701T031539_20210701T031854_T48QWE')
+# Define one image directly by its asset id
+image = ee.Image('IMAGE_ID')
 ```
 
 …or you can *derive* one image from a filtered collection. Two common reducers:
@@ -104,17 +103,17 @@ first_image = filtered.first()   # the first image in the collection
 composite   = filtered.mean()    # pixel-wise mean across all images (a cloud-reducing composite)
 ```
 
-A single image can also be a **processed result**. For example, computing the Normalized
-Difference Vegetation Index from the near-infrared (`B8`) and red (`B4`) bands gives a new
-one-band image:
+A single image can also be a **processed result**. For example, computing a
+normalized-difference index from two bands gives a new one-band image:
 
 ```python
-# NDVI = (NIR - Red) / (NIR + Red); here B8 = NIR, B4 = Red (Sentinel-2 naming)
-ndvi = image.normalizedDifference(['B8', 'B4'])
+# normalizedDifference = (first band - second band) / (first band + second band)
+index = image.normalizedDifference(['band_1', 'band_2'])
 ```
 
 `normalizedDifference` is just a convenience for `(first - second) / (first + second)`, so the
-same call computes *any* normalized-difference index simply by changing the two band names.
+same call computes *any* normalized-difference index once you supply the right sensor-specific
+band names.
 
 ### Features and feature collections
 
@@ -140,104 +139,17 @@ training = ee.FeatureCollection([
 ```
 
 ```{important}
-GEE code runs on **Google's servers** and therefore needs an Earth Engine account. To keep the
-runnable examples friction-free, the executable notebooks live on **Google Colab** rather than
-in this book. Work through them after this page: [](05b-landsat-colab.md) for Landsat and
-[](05c-sentinel-colab.md) for Sentinel-2.
+GEE code runs on **Google's servers** and therefore needs an Earth Engine account. The next
+two notebook pages are included in the book and can also be launched in **Google Colab** from
+the toolbar: [](05b-landsat.ipynb) for Landsat and [](05c-sentinel.ipynb) for Sentinel-2.
 ```
 
-## The Landsat missions
+## References
 
-The largest and longest-running source of imagery in GEE is **Landsat** — a continuous program
-of Earth-observation satellites running since 1972. Over nine missions the sensors evolved
-(**MSS → TM → ETM+ → OLI/TIRS**), steadily adding bands and improving resolution, while keeping
-the data stream consistent enough to study change across half a century.
-
-| Era | Missions | Sensor(s) | Resolution | Headline change |
-|---|---|---|---|---|
-| **MSS** | Landsat 1–3 (1972–) | MSS (+ experimental thermal on L3) | 60 m | Basic green/red/NIR bands only |
-| **TM** | Landsat 4–5 (1982–) | MSS + **TM** | 30 m | Added blue, SWIR, and thermal bands; L5 ran to 2013 |
-| **ETM+** | Landsat 7 (1999–) | **ETM+** | 30 m + **15 m** | Added a 15 m **panchromatic** band |
-| **OLI/TIRS** | Landsat 8–9 (2013–) | **OLI + TIRS** (OLI-2/TIRS-2 on L9) | 30 m + 15 m | New sensors, higher radiometric precision; L9 backs up L8 |
-
-```{note}
-Landsat 6 (1993) **failed to reach orbit**, so there is no Landsat 6 data. That is why the
-mission table above skips from Landsat 7 to Landsat 8.
-```
-
-### The band lineup
-
-The Landsat bands you reach for most often are the same physical wavelengths across the modern
-sensors — they are just numbered differently from mission to mission. The recurring set is:
-
-| Band | Name | Wavelength | Used for |
-|---|---|---|---|
-| Coastal/aerosol | Coastal | ~433–453 nm | Atmospheric correction, shallow water (L8/9 only) |
-| Blue | Blue | ~450–515 nm | True-colour, water |
-| Green | Green | ~525–600 nm | True-colour, vegetation vigour |
-| Red | Red | ~630–680 nm | True-colour, vegetation (chlorophyll absorption) |
-| NIR | Near-infrared | ~760–900 nm | Vegetation (NDVI), biomass |
-| SWIR 1 | Shortwave IR 1 | ~1560–1660 nm | Moisture, built-up areas (NDBI) |
-| SWIR 2 | Shortwave IR 2 | ~2100–2300 nm | Geology, burn scars |
-| Panchromatic | Pan | ~500–680 nm (L8/9) | 15 m sharpening (L7–9) |
-| Thermal | TIR 1 / TIR 2 | ~10.6–12.5 µm | Surface temperature |
-
-The practical headache is that **band numbers differ between missions** — the red band is
-`B5` on the original Landsat 1–3 MSS sensor (renumbered on L4–5), `B3` on TM/ETM+, and `B4` on
-OLI. When you write an index like NDVI on OLI, `normalizedDifference(['B5', 'B4'])` (NIR `B5`,
-Red `B4`), always check the band numbering for the specific product you loaded.
-
-## Decoding a product id: `LC08_C02_T1_L2`
-
-GEE asset ids look cryptic but are completely systematic. Reading one tells you the sensor,
-processing version, quality tier, and correction level before you ever load a pixel. Take the
-Landsat 8 surface-reflectance product:
-
-| Field | Value | Meaning |
-|---|---|---|
-| `LC08` | Landsat, mission **08** | Data from the **Landsat 8** satellite |
-| `C02` | **Collection 2** | The processing version. Collection 2 is the USGS's reprocessed, higher-accuracy release (more precise than the older C01) |
-| `T1` | **Tier 1** | Geometrically corrected and quality-controlled — **analysis-ready**. (Tier 2 has lower geometric accuracy) |
-| `L2` | **Level-2** | Atmospherically corrected **surface reflectance** — physical reflectance at the ground, not raw top-of-atmosphere values |
-
-So `LANDSAT/LC08/C02/T1_L2` is: *Landsat 8, Collection 2, Tier 1, Level-2 surface reflectance* —
-the dataset you usually want for quantitative analysis.
-
-## Quality bands: `QA_PIXEL` and `QA_RADSAT`
-
-Surface-reflectance products ship with **quality-assessment (QA) bands** that flag which pixels
-you can trust. Crucially, these are **bitmask** bands: rather than storing a separate band per
-flag, several yes/no conditions are **packed into the bits of a single integer**, and you read a
-flag by testing whether its bit is set.
-
-| QA band | Full name | Packs flags for |
-|---|---|---|
-| **`QA_PIXEL`** | Pixel Quality Assessment | Per-pixel conditions: **cloud**, cloud shadow, cirrus, snow, water, and their confidence levels |
-| **`QA_RADSAT`** | Radiometric Saturation Quality Assessment | Which **bands are saturated** (sensor over-exposed) at each pixel |
-
-```{note}
-A bitmask packs many flags into one number. For Landsat 8/9 `QA_PIXEL`, for instance, **bit 3**
-marks cloud and **bit 4** marks cloud shadow. To build a cloud mask you isolate the relevant
-bit(s) with a bitwise operation rather than comparing the whole value — for example
-`qa.bitwiseAnd(1 << 3)` tests the cloud bit. We use exactly this pattern to mask clouds in
-[](05b-landsat-colab.md).
-```
-
-## Spectral products you'll build
-
-With the right bands and a clean (cloud-masked) image in hand, a few standard products come up
-again and again:
-
-| Product | Formula / bands | Tells you |
-|---|---|---|
-| **NDVI** (vegetation) | `(NIR − Red) / (NIR + Red)` | Vegetation greenness/density — high for healthy plants |
-| **NDBI** (built-up) | `(SWIR1 − NIR) / (SWIR1 + NIR)` | Built-up / impervious surfaces — high for urban areas |
-| **True-colour RGB** | Red, Green, Blue bands | A natural-looking image, as the eye would see it |
-
-NDVI and NDBI are both **normalized-difference indices**, so each is one `normalizedDifference`
-call away once you know the band names. True-colour RGB is just the visible bands stacked and
-stretched for display via `Map.addLayer()`. These three are the workhorses behind the
-classification we build next.
+- Google Earth Engine Developers. (n.d.). [Get Started with Earth Engine](https://developers.google.com/earth-engine/guides/getstarted).
+- Gorelick, N., Hancher, M., Dixon, M., Ilyushchenko, S., Thau, D., & Moore, R. (2017).
+  Google Earth Engine: Planetary-scale geospatial analysis for everyone. *Remote Sensing of
+  Environment*, 202, 18-27.
 
 ---
 

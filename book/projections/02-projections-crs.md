@@ -131,6 +131,13 @@ See these projections rendered side by side at the end of
 Carrée, Robinson, Mollweide, and Eckert IV.
 ```
 
+## References
+
+- Snyder, J. P. (1987). *Map Projections: A Working Manual*. U.S. Geological Survey
+  Professional Paper 1395.
+- Iliffe, J., & Lott, R. (2008). *Datums and Map Projections: For Remote Sensing, GIS and
+  Surveying* (2nd ed.). Whittles Publishing.
+
 ---
 
 **Next:** time to put this into practice — [](../rasterio/03-rasterio-pipeline.ipynb) opens,

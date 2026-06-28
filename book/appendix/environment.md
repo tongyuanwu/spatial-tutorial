@@ -1,4 +1,4 @@
-# Appendix B · Environment Setup
+# Appendix A · Environment Setup
 
 Geospatial Python rests on a tall stack of compiled C libraries — GDAL, PROJ, GEOS — and
 getting them to agree with each other is the single biggest hurdle to a working setup. This
@@ -55,10 +55,6 @@ backends (PyQt, etc.) that we never use in a notebook and that drag in a large, 
 conflicting dependency tree. We also pin **Python 3.11**, which every package above ships
 prebuilt wheels for on conda-forge.
 ```
-
-The `scikit-learn` entry is there because the capstone's *weighted* ridgeline variant
-(`ridgeline_utils.py`, reference-only) imports `sklearn.neighbors.KernelDensity`; the main
-ridgeline uses `scipy.stats.gaussian_kde` instead. It is kept so the environment is complete.
 
 ## Quick start
 
@@ -185,6 +181,6 @@ bundled `SimHei` or `Microsoft YaHei` work equally well in place of `Noto Sans C
 ```
 
 ```{seealso}
-For *what* you are installing all this to work with — the data inventory and download
-script — see [](./data.md). For where the datasets came from, see [](./provenance.md).
+For *what* you are installing all this to work with, including the data inventory and download
+script, see [](./data.md).
 ```

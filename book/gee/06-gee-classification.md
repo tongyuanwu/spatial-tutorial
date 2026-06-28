@@ -1,4 +1,4 @@
-# Land-Cover Classification with Machine Learning in GEE
+# Land-Cover Classification with Machine Learning
 
 One of the most common things people do with satellite imagery is turn a stack of spectral
 bands into a **map of categories** — water, forest, cropland, built-up, bare soil. This page
@@ -73,7 +73,7 @@ classified = image.classify(classifier)
 ```{important}
 All of this runs **on Google's servers**, not on your laptop — and in this workshop you run
 it from a **Colab notebook**. The hands-on version, with real imagery, training points, and a
-map, lives in [](06b-classifier-colab.md). Treat this page as the concepts and that notebook
+map, lives in [](06b-classifier.ipynb). Treat this page as the concepts and that notebook
 as the lab.
 ```
 
@@ -194,8 +194,13 @@ on **held-out** points that reflects how the map will perform on real, unseen pi
 ```{seealso}
 For the complete, runnable version of this workflow — loading imagery, drawing training
 points, training both CART and random forest, mapping the result, and printing an error
-matrix — work through [](06b-classifier-colab.md).
+matrix — work through [](06b-classifier.ipynb).
 ```
+
+## References
+
+- Google Earth Engine Developers. (n.d.). [Supervised Classification](https://developers.google.com/earth-engine/guides/classification).
+- Breiman, L. (2001). Random forests. *Machine Learning*, 45, 5?32.
 
 ---
 

@@ -1,4 +1,4 @@
-# Appendix A · Data & Downloads
+# Appendix B · Data & Downloads
 
 This workshop ships roughly **700 MB** of geographic data. To keep the repository light enough
 to clone quickly, the two largest rasters are **hosted externally and fetched on demand**,
@@ -68,7 +68,7 @@ equal-area CRS matters when you compare areas.
 
 | File | Size | Used by |
 |---|---|---|
-| `world_map.shp` | — | world country polygons for the [vector boundaries](../vector/04-vector-boundaries.ipynb) page |
+| `world_map.shp` | — | world country polygons used for raster overlays and basemaps |
 | `ne_110m_admin_0_countries.shp` | — | Natural Earth 1:110 m country boundaries |
 | `world_from_gadm_100km.shp` (GADM) | ~10 MB | GADM-derived world boundaries, generalized to ~100 km |
 | `中国_省.geojson` | — | Chinese province boundaries (GeoJSON) |
@@ -83,7 +83,7 @@ must travel together — the `.shp` size in the table is only the geometry compo
 
 | File | Size | Used by |
 |---|---|---|
-| `Surface_temperature_126.csv` | ~4.5 MB | SSP1-2.6 surface-temperature series for the [ridgeline](../capstone/09-ridgeline.ipynb) and [road-temp map](../capstone/10-road-temp-map.ipynb) |
+| `Surface_temperature_126.csv` | ~4.5 MB | SSP1-2.6 surface-temperature series for the [road-temp map](../capstone/10-road-temp-map.ipynb) |
 | `Surface_temperature_245.csv` | ~4.5 MB | SSP2-4.5 surface-temperature series |
 | `Surface_temperature_585.csv` | ~4.5 MB | SSP5-8.5 surface-temperature series |
 | `Road coordinate.csv` | ~2.6 MB | global road coordinates for the road-temperature map |
@@ -105,7 +105,7 @@ A few files in the original workshop folders are **removed** during the reorgani
   rasterizes countries on the fly in the rasterio pipeline, so the pre-baked 1 km mask
   isn't needed.
 
-See [](provenance.md) for the full map of what was de-duplicated and why.
+The table above is the canonical data inventory for the book.
 
 ## Licensing & attribution
 

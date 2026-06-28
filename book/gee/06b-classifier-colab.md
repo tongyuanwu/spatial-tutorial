@@ -1,4 +1,4 @@
-# Classifier Walkthrough (Colab)
+# Classifier Walkthrough
 
 An end-to-end land-cover classification in Google Earth Engine: collect labelled training
 points for a few classes, sample the image bands at those points, train a CART or Random
@@ -137,6 +137,11 @@ Everything above runs **server-side** on Google's infrastructure. Each call buil
 *request*; results only materialise when you display a layer or print a value. That's why a
 continent-scale classification can return in seconds.
 ```
+
+## References
+
+- Google Earth Engine Developers. (n.d.). [Supervised Classification](https://developers.google.com/earth-engine/guides/classification).
+- Google Earth Engine API Reference. (n.d.). [`ee.Classifier.smileRandomForest`](https://developers.google.com/earth-engine/apidocs/ee-classifier-smilerandomforest).
 
 ---
 
