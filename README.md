@@ -3,7 +3,7 @@
 An online, English-language **Jupyter Book** teaching geospatial data analysis and
 mapping in Python, adapted from a three-day GIS workshop.
 
-Authors: **Zhi Cao**, **Tongyuan Wu**, and **Shuhao Huo**.
+Authors: **Tongyuan Wu**, **Shuhao Huo**, and **Zhi Cao**.
 
 **Read it online:** https://tongyuanwu.github.io/spatial-tutorial
 

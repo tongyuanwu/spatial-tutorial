@@ -68,7 +68,7 @@ equal-area CRS matters when you compare areas.
 
 | File | Size | Used by |
 |---|---|---|
-| `world_map.shp` | — | world country polygons used for raster overlays and basemaps |
+| `world_map.shp` | — | GADM-derived world administrative boundaries used for raster overlays and basemaps |
 | `ne_110m_admin_0_countries.shp` | — | Natural Earth 1:110 m country boundaries |
 | `world_from_gadm_100km.shp` (GADM) | ~10 MB | GADM-derived world boundaries, generalized to ~100 km |
 | `中国_省.geojson` | — | Chinese province boundaries (GeoJSON) |
@@ -90,6 +90,21 @@ must travel together — the `.shp` size in the table is only the geometry compo
 
 The three `Surface_temperature_*` files correspond to the three climate scenarios (the
 SSP numbers); the capstone pages join the road coordinates against these temperature series.
+
+## Source notes and attribution
+
+- **Natural Earth layers**: `NE2_110M_SR_W.tif` and `ne_110m_admin_0_countries.shp`
+  come from Natural Earth.
+- **GADM-derived boundaries**: `world_map.shp` and `world_from_gadm_100km.shp` are derived
+  from GADM administrative boundaries and generalized for faster drawing in the tutorial.
+- **Species-richness rasters**: `species_richness_*_eck4.tif` are AOH-derived
+  species-richness grids from Wu et al. (2026), manuscript under review, bundled with this
+  tutorial in the Eckert IV projection.
+- **Road-temperature data**: `Road_coordinate.csv` and `Surface_temperature_*` are from
+  Huo et al. (2026), manuscript under review.
+- **Chinese province boundaries**: `china_provinces.geojson` is bundled with the tutorial
+  data for map context; add a formal upstream citation here when the redistribution
+  metadata is finalized.
 
 ## Repository housekeeping
 

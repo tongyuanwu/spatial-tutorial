@@ -53,14 +53,6 @@
 </style>
 
 <div class="book-author-line" aria-label="Book authors">
-  <span class="book-author" tabindex="0">Zhi Cao
-    <span class="book-author-card" role="tooltip">
-      <strong>Zhi Cao</strong>
-      <span>Professor</span>
-      <span>School of Earth System Science, Tianjin University, China</span>
-      <span>College of Environmental Science and Engineering, Nankai University, China</span>
-    </span>
-  </span>,
   <span class="book-author" tabindex="0">Tongyuan Wu
     <span class="book-author-card" role="tooltip">
       <strong>Tongyuan Wu</strong>
@@ -72,6 +64,14 @@
     <span class="book-author-card" role="tooltip">
       <strong>Shuhao Huo</strong>
       <span>PhD student</span>
+      <span>College of Environmental Science and Engineering, Nankai University, China</span>
+    </span>
+  </span>,
+  <span class="book-author" tabindex="0">Zhi Cao
+    <span class="book-author-card" role="tooltip">
+      <strong>Zhi Cao</strong>
+      <span>Professor</span>
+      <span>School of Earth System Science, Tianjin University, China</span>
       <span>College of Environmental Science and Engineering, Nankai University, China</span>
     </span>
   </span>
